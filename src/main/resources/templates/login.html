@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{fragments/logincard}" th:with="value=${param.err != null ? 'Username o Password Errata' : ''}">
+<head th:replace="fragments/head :: head(title = 'Login')">
+<body>
+   	<header th:replace="fragments/header :: header(title = 'Login', selector = '/login')" />
+   	<div class="container">
+   		<div th:replace="fragments/logincard :: logincard(formaction = '/login')" />
+   	</div>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

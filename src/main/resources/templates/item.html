@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Prodotto')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo', products = 'active')" />
+    <div th:replace="fragments/productpage :: productpage(name = ${prod.name}, id = ${prod.id}, image = ${prod.image}, description = ${prod.description}, formaction = '/buy')" />
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

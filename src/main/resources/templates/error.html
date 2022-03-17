@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Errore')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo')" />
+    <div class="container">
+        <p th:text="${status} + ' ' + ${error}"/>
+        <p th:text="${message}"/>
+    </div>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

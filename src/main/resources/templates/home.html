@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Homepage')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo', home = 'active')" />
+    <div class="container">
+        <h1>Benvenuto!</h1>
+        <p><b>Nome:</b> <span th:text="${user.name}" /></p>
+        <p><b>Cognome:</b> <span th:text="${user.surname}" /></p>
+        <p><b>Email:</b> <span th:text="${user.email}" /></p>
+        <ul>
+        	<span th:each="error: ${err}" th:remove="tag">
+        	<li th:class="text-danger" th:text="${error}"/>
+        	</span>
+        </ul>
+        <a class="btn btn-info" href="/settings">Modifica dati</a>
+    </div>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

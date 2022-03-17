@@ -1,0 +1,21 @@
+<div class="card m-4" style="width: 18rem;" th:fragment="productcard">
+	<form th:action = "${formaction}" method = "POST">
+    <input type = "hidden" name="id" th:value = "${id}">
+  	<img th:src="${img}" class="card-img-top" width="200" height="200">
+  	<div class="card-body">
+    	<h5 class="card-title" th:text="${title}" />
+    		<p class="card-text"><a th:href="'/products/' + ${id}">Dettagli...</a>
+  	</div>
+  	<ul class="list-group list-group-flush">
+    	<li class="list-group-item" th:text="${price} + ' &euro;'"/>
+    	<li class="list-group-item">
+    			<div class="input-group">
+  					<input type="number" class="form-control" placeholder="0...10" value="1" aria-label="qty" aria-describedby="qty" name="qty">
+  					<div class="input-group-append">
+    					<button class="btn btn-info" type="submit">Acquista</button>
+  					</div>
+				</div>
+    	</li>
+  	</ul>
+  	</form>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Impostazioni')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo', home = 'active')" />
+    <div class="container form-group">
+        <h1>Modifica dati</h1>
+        <form action="/editdetails" method="POST">
+        	<label>Username</label> <input type="text" class="form-control" th:value="${user.username}" name="username" />
+	        <label>Nome</label> <input type="text" class="form-control" th:value="${user.name}" name="name" />
+	        <label>Cognome</label> <input type="text" class="form-control" th:value="${user.surname}"  name="surname" />
+	        <label>Email</label> <input type="email" class="form-control" th:value="${user.email}" name="email"/>
+	        <label>Password</label> <input type="password" class="form-control" name="password"/>
+	        <small id="passwordHelpBlock" class="form-text text-muted">
+  			La password deve avere almeno 8 caratteri</small><br>
+  			<label>Conferma Password</label> <input type="password" class="form-control" name="cpassword"/><br>
+	        <button class="btn btn-success" type="submit">Conferma dati</button>
+	    </form>
+    </div>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

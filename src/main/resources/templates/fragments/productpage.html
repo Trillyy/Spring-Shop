@@ -1,0 +1,24 @@
+<div class="content container" th:fragment="productpage">
+     <h1 th:text="${name}"></h1>
+        <div class="front">
+            <div class="row">
+                <div class="image"><img th:src="${image}" width="300" height="300"></div>
+                <div class="description">
+                	<h1>Descrizione</h1>
+                	<p th:utext="${description}" />
+            	</div>
+            </div>
+                <div class="buybox">
+                <form th:action = "${formaction}" method = "POST">
+                	<input type="hidden" th:value="${id}" name="id">
+                    <div class="input-group">
+  					<input type="number" class="form-control" placeholder="0...10" value="1" min=1 max=10 aria-label="qty" aria-describedby="qty" name="qty">
+  					<div class="input-group-append">
+    					<button class="btn btn-info" type="submit">Acquista</button>
+  					</div>
+				</div>
+                </form>
+                </div>
+            </div> 
+        </div>
+</div>

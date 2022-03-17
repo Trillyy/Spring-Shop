@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Carrello')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo', cart = 'active')" />
+    <div class="container">
+    <h1>Carrello</h1>
+    <table id="cart" class="display">
+    <form action = "editqty" method = "POST">
+        <tr th:each="prod: ${cart}">
+        	<input type="hidden" value="${prod.pqid}" name="id">
+            <td class="id" th:text="${prod.id}" />
+            <td class="image"><img th:src="${prod.image}" width="80" height = "80"></td>
+            <td class="name" th:text="${prod.name}"/>
+            <td class="qty" th:text="'x ' + ${prod.quantity}"><br>
+            <input type="submit" value="+" name="op"><input type="submit" value="-" name="op">
+            </td>
+            <td class="price" th:text = "${prod.getTotalPrice()} + '&euro;'" />
+        </tr>
+     </form>
+     	<form action = "order" method = "POST">
+     	<input type="hidden" th:value="${cart.isEmpty() ? 0 : cart[0].cartid}" name="id">
+        <tr class="item-row">
+            <td class="id">Totale</td>
+            <td class="image"></td>
+            <td class="name"></td>
+            <td class="qty"><input type="submit" value="Ordina ora" class="btn btn-info"></td>
+            <td class="price" th:text="${sum} + ' &euro;'">
+             &euro;</td>
+        </tr>
+        </form>
+    </table>
+    </div>
+    <script>
+    $(document).ready( function () {
+        $('#cart').DataTable();
+    } );
+    </script>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>

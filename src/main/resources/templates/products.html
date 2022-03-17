@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(title = 'Prodotti')">
+<body>
+    <header th:replace="fragments/header :: header(title = 'Random Logo', products = 'active')" />
+    <div class="container row">
+    <h1>Prodotti</h1>
+        <span th:each="prod: ${products}" th:remove="tag">
+        <div th:replace="fragments/productcard :: productcard(title = ${prod.name}, id = ${prod.id}, img = ${prod.image}, price = ${prod.price}, formaction = '/buy')" />
+    </span>
+    </div>
+    <footer th:replace="fragments/footer :: footer" />
+</body>
+</html>
